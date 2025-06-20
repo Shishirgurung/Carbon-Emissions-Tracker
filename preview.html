@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Emissions Tracker - Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .airplane-animation {
+            animation: airplane-fly 3s linear infinite;
+        }
+        @keyframes airplane-fly {
+            0% { transform: translateX(-100px) rotate(45deg); }
+            100% { transform: translateX(100px) rotate(45deg); }
+        }
+        .pulse-live {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="p-2 bg-blue-500 rounded-lg">
+                        <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">Carbon Tracker</h1>
+                        <p class="text-xs text-gray-500">Real-time Aviation Emissions</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full pulse-live"></div>
+                        <span class="text-sm text-gray-600">Live Data</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                Aviation Emissions Dashboard
+            </h1>
+            <p class="text-gray-600">
+                Real-time monitoring of global aviation carbon emissions
+            </p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Active Flights -->
+            <div class="bg-white rounded-xl shadow-lg border border-blue-200 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 mb-1">Active Flights</p>
+                        <p class="text-2xl font-bold text-gray-900">12,847</p>
+                        <div class="flex items-center mt-2">
+                            <svg class="h-4 w-4 text-red-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <span class="text-sm font-medium text-red-600">+2.3%</span>
+                            <span class="text-xs text-gray-500 ml-1">vs yesterday</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-blue-50 rounded-lg">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CO2 Today -->
+            <div class="bg-white rounded-xl shadow-lg border border-red-200 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 mb-1">CO₂ Today (Sample)</p>
+                        <p class="text-2xl font-bold text-gray-900">2,847.3 tons</p>
+                        <div class="flex items-center mt-2">
+                            <svg class="h-4 w-4 text-red-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <span class="text-sm font-medium text-red-600">+5.7%</span>
+                            <span class="text-xs text-gray-500 ml-1">vs yesterday</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-red-50 rounded-lg">
+                        <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Estimate -->
+            <div class="bg-white rounded-xl shadow-lg border border-orange-200 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 mb-1">Estimated Daily Global</p>
+                        <p class="text-2xl font-bold text-gray-900">2.8M tons</p>
+                        <div class="flex items-center mt-2">
+                            <svg class="h-4 w-4 text-red-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <span class="text-sm font-medium text-red-600">+1.2%</span>
+                            <span class="text-xs text-gray-500 ml-1">vs yesterday</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-orange-50 rounded-lg">
+                        <svg class="h-6 w-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Average per Flight -->
+            <div class="bg-white rounded-xl shadow-lg border border-green-200 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 mb-1">Avg per Flight</p>
+                        <p class="text-2xl font-bold text-gray-900">22.1 tons</p>
+                        <div class="flex items-center mt-2">
+                            <svg class="h-4 w-4 text-green-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
+                            </svg>
+                            <span class="text-sm font-medium text-green-600">-0.8%</span>
+                            <span class="text-xs text-gray-500 ml-1">vs yesterday</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded-lg">
+                        <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Chart Area -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Emissions Trends</h3>
+                    <div class="h-80 bg-gray-50 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="airplane-animation text-4xl mb-4">✈️</div>
+                            <p class="text-gray-600">Interactive emissions chart</p>
+                            <p class="text-sm text-gray-500">Real-time CO₂ tracking visualization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Feed -->
+            <div class="space-y-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Live Flight Feed</h3>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full pulse-live"></div>
+                            <span class="text-xs text-gray-500">Live</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <!-- Flight 1 -->
+                        <div class="p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="p-1 bg-blue-100 rounded">
+                                        <svg class="h-3 w-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900">AA1234</h4>
+                                        <p class="text-xs text-gray-500">Boeing 777</p>
+                                    </div>
+                                </div>
+                                <div class="px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded-full">HIGH</div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="text-center">
+                                    <div class="font-bold text-red-600">45.2 tons</div>
+                                    <div class="text-gray-500">Total CO₂</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-bold text-red-600">0.32 tons</div>
+                                    <div class="text-gray-500">Per Passenger</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-bold text-gray-900">5,847 km</div>
+                                    <div class="text-gray-500">Distance</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Flight 2 -->
+                        <div class="p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="p-1 bg-blue-100 rounded">
+                                        <svg class="h-3 w-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900">BA567</h4>
+                                        <p class="text-xs text-gray-500">Airbus A320</p>
+                                    </div>
+                                </div>
+                                <div class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">MEDIUM</div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="text-center">
+                                    <div class="font-bold text-yellow-600">18.7 tons</div>
+                                    <div class="text-gray-500">Total CO₂</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-bold text-yellow-600">0.15 tons</div>
+                                    <div class="text-gray-500">Per Passenger</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-bold text-gray-900">1,247 km</div>
+                                    <div class="text-gray-500">Distance</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Flight 3 -->
+                        <div class="p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="p-1 bg-blue-100 rounded">
+                                        <svg class="h-3 w-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900">LH890</h4>
+                                        <p class="text-xs text-gray-500">Boeing 737</p>
+                                    </div>
+                                </div>
+                                <div class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">LOW</div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="text-center">
+                                    <div class="font-bold text-green-600">8.4 tons</div>
+                                    <div class="text-gray-500">Total CO₂</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-bold text-green-600">0.07 tons</div>
+                                    <div class="text-gray-500">Per Passenger</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-bold text-gray-900">542 km</div>
+                                    <div class="text-gray-500">Distance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Environmental Impact -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Environmental Impact</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-red-50 rounded-lg">
+                            <div class="text-sm text-red-600 font-medium mb-1">Daily CO₂ Equivalent</div>
+                            <div class="text-2xl font-bold text-red-700">2,847,000 kg</div>
+                            <div class="text-xs text-red-500 mt-1">≈ 113,880 trees needed to offset</div>
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <div class="text-sm text-green-600 font-medium mb-1">Carbon Offset Cost</div>
+                            <div class="text-lg font-bold text-green-700">$71,175</div>
+                            <div class="text-xs text-green-500 mt-1">To offset today's sample emissions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setup Instructions -->
+        <div class="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
+            <div class="flex items-start space-x-3">
+                <div class="p-2 bg-blue-100 rounded-lg">
+                    <svg class="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-900 mb-2">Ready to Run the Full Application?</h3>
+                    <p class="text-blue-800 mb-4">This is a preview of the Carbon Emissions Tracker. To run the full interactive application:</p>
+                    <ol class="list-decimal list-inside text-blue-800 space-y-2 mb-4">
+                        <li>Install Node.js from <a href="https://nodejs.org" class="underline font-medium">nodejs.org</a></li>
+                        <li>Open Command Prompt in this folder</li>
+                        <li>Run: <code class="bg-blue-100 px-2 py-1 rounded">npm install</code></li>
+                        <li>Run: <code class="bg-blue-100 px-2 py-1 rounded">cd server && npm install && cd ..</code></li>
+                        <li>Double-click <code class="bg-blue-100 px-2 py-1 rounded">start.bat</code> or run servers manually</li>
+                    </ol>
+                    <p class="text-sm text-blue-700">See <strong>SETUP.md</strong> for detailed instructions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
